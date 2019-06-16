@@ -35,4 +35,11 @@ public:
     // called by:	Board::pegging
     //----------------------------------------------------------------*/
     Card playCard(vector<Card> pastCards, int sum);
+
+protected:
+    vector<Card> getPartialHand(int i, int j);
 };
+
+Score calculatePartialHandScore(vector<Card> hand);
+
+int scoreFlush(const vector<Card> hand);

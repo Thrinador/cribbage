@@ -154,6 +154,7 @@ void Board::pegging(Score &p1, Score &p2) {
         turn = !turn;
     }
 
+    //If 
     int score = sum == 31 ? 2 : 1;
     if (turn) {
         p1.pegging += score;

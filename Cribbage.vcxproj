@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -19,30 +19,31 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{0EBEED24-8074-4D30-8C8C-87A72FCFA394}</ProjectGuid>
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{F5F6C501-2AE2-488C-A658-1AE86468B0C5}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -98,29 +99,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="sorcecode\core\Board.cpp" />
-    <ClCompile Include="sorcecode\core\Card.cpp" />
-    <ClCompile Include="sorcecode\core\Deck.cpp" />
-    <ClCompile Include="sorcecode\core\Driver.cpp" />
-    <ClCompile Include="sorcecode\core\GlobalHelperFunctions.cpp" />
-    <ClCompile Include="sorcecode\core\TestDriver.cpp" />
-    <ClCompile Include="sorcecode\output\GameStats.cpp" />
-    <ClCompile Include="sorcecode\output\SimulationStats.cpp" />
-    <ClCompile Include="sorcecode\players\Computer.cpp" />
-    <ClCompile Include="sorcecode\players\Human.cpp" />
-    <ClCompile Include="sorcecode\players\Player.cpp" />
+    <ClCompile Include="core\Board.cpp" />
+    <ClCompile Include="core\Card.cpp" />
+    <ClCompile Include="core\Deck.cpp" />
+    <ClCompile Include="core\Driver.cpp" />
+    <ClCompile Include="core\GlobalHelperFunctions.cpp" />
+    <ClCompile Include="core\TestDriver.cpp" />
+    <ClCompile Include="output\GameStats.cpp" />
+    <ClCompile Include="output\SimulationStats.cpp" />
+    <ClCompile Include="players\Computer.cpp" />
+    <ClCompile Include="players\HardBot.cpp" />
+    <ClCompile Include="players\HeuristicBot.cpp" />
+    <ClCompile Include="players\Human.cpp" />
+    <ClCompile Include="players\MachineLearningBot.cpp" />
+    <ClCompile Include="players\MediumBot.cpp" />
+    <ClCompile Include="players\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sorcecode\core\Board.h" />
-    <ClInclude Include="sorcecode\core\Card.h" />
-    <ClInclude Include="sorcecode\core\Deck.h" />
-    <ClInclude Include="sorcecode\core\GlobalHelperFunctions.h" />
-    <ClInclude Include="sorcecode\core\Score.h" />
-    <ClInclude Include="sorcecode\output\GameStats.h" />
-    <ClInclude Include="sorcecode\output\SimulationStats.h" />
-    <ClInclude Include="sorcecode\players\Computer.h" />
-    <ClInclude Include="sorcecode\players\Human.h" />
-    <ClInclude Include="sorcecode\players\Player.h" />
+    <ClInclude Include="core\Board.h" />
+    <ClInclude Include="core\Card.h" />
+    <ClInclude Include="core\Deck.h" />
+    <ClInclude Include="core\GlobalHelperFunctions.h" />
+    <ClInclude Include="core\Score.h" />
+    <ClInclude Include="output\GameStats.h" />
+    <ClInclude Include="output\SimulationStats.h" />
+    <ClInclude Include="players\Computer.h" />
+    <ClInclude Include="players\HardBot.h" />
+    <ClInclude Include="players\HeuristicBot.h" />
+    <ClInclude Include="players\Human.h" />
+    <ClInclude Include="players\MachineLearningBot.h" />
+    <ClInclude Include="players\MediumBot.h" />
+    <ClInclude Include="players\Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

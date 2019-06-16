@@ -10,8 +10,7 @@
 //--------------------------------------------------------------------*/
 
 #pragma once
-#include "Computer.h"
-#include <string>
+#include "HardBot.h"
 
 /*------------------------------------------------------------------
 // name:		getCribCards
@@ -21,7 +20,7 @@
 // parameters:	bool of whose crib it is.
 // called by:	Board::play
 //----------------------------------------------------------------*/
-vector<Card> Computer::getCribCards(bool turn) {
+vector<Card> HardBot::getCribCards(bool turn) {
     vector<Card> cribCards;
     cribCards.push_back(holdingHand.at(0));
     cribCards.push_back(holdingHand.at(1));
@@ -40,7 +39,7 @@ vector<Card> Computer::getCribCards(bool turn) {
 // parameters:	vector of cards that have been played, and int of current sum
 // called by:	Board::pegging
 //----------------------------------------------------------------*/
-Card Computer::playCard(vector<Card> pastCards, int sum) {
+Card HardBot::playCard(vector<Card> pastCards, int sum) {
     for (unsigned int i = 0; i < playingHand.size(); i++) {
         Card choice = playingHand[i];
         if (choice.value + sum <= 31) {

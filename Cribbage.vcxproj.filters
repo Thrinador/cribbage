@@ -15,69 +15,93 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sorcecode\core\Board.cpp">
+    <ClCompile Include="core\Board.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sorcecode\core\Card.cpp">
+    <ClCompile Include="core\Card.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sorcecode\core\Deck.cpp">
+    <ClCompile Include="core\Deck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sorcecode\core\Driver.cpp">
+    <ClCompile Include="core\Driver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sorcecode\core\GlobalHelperFunctions.cpp">
+    <ClCompile Include="core\GlobalHelperFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sorcecode\core\TestDriver.cpp">
+    <ClCompile Include="core\TestDriver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sorcecode\output\GameStats.cpp">
+    <ClCompile Include="output\GameStats.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sorcecode\output\SimulationStats.cpp">
+    <ClCompile Include="output\SimulationStats.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sorcecode\players\Computer.cpp">
+    <ClCompile Include="players\Computer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sorcecode\players\Human.cpp">
+    <ClCompile Include="players\HardBot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sorcecode\players\Player.cpp">
+    <ClCompile Include="players\HeuristicBot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="players\Human.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="players\MachineLearningBot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="players\MediumBot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="players\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sorcecode\core\Board.h">
+    <ClInclude Include="core\Board.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sorcecode\core\Card.h">
+    <ClInclude Include="core\Card.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sorcecode\core\Deck.h">
+    <ClInclude Include="core\Deck.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sorcecode\core\GlobalHelperFunctions.h">
+    <ClInclude Include="core\GlobalHelperFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sorcecode\core\Score.h">
+    <ClInclude Include="core\Score.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sorcecode\output\GameStats.h">
+    <ClInclude Include="output\GameStats.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sorcecode\output\SimulationStats.h">
+    <ClInclude Include="output\SimulationStats.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sorcecode\players\Computer.h">
+    <ClInclude Include="players\Computer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sorcecode\players\Human.h">
+    <ClInclude Include="players\HardBot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sorcecode\players\Player.h">
+    <ClInclude Include="players\HeuristicBot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="players\Human.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="players\MachineLearningBot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="players\MediumBot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="players\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
