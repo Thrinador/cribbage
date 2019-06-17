@@ -33,6 +33,7 @@ public:
     // called by:	main
     //----------------------------------------------------------------*/
     Board(Player* p1, Player* p2) : player1(p1), player2(p2), deck(new Deck()), turn(true) {}
+    Board(Player* p1, Player* p2, bool turn) : player1(p1), player2(p2), deck(new Deck()), turn(turn) {}
     
     /*------------------------------------------------------------------
     // name:		play
@@ -42,7 +43,12 @@ public:
     // returns:		none
     // called by:	main
     //----------------------------------------------------------------*/
-    void play();
+    GameStats play();
+
+    Player* getPlayer1() { return player1; }
+    Player* getPlayer2() { return player2; }
+
+    void resetGame(bool turn);
 
 private:
     

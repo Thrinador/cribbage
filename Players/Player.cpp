@@ -211,3 +211,7 @@ void Player::resetHand(vector<Card>* newHand) {
     holdingHand = *newHand;
     playingHand = *newHand;
 }
+
+void Player::reset() {
+    score = 0;
+}

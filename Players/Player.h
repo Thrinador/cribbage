@@ -18,7 +18,8 @@ using namespace std;
 class Player {
 
 public:
-    Player() : score(0), holdingHand(0), playingHand(0), name("") {};
+    Player() : score(0), holdingHand(0), playingHand(0), name(""), turn(false) {};
+    Player(bool turn) : score(0), holdingHand(0), playingHand(0), name(""), turn(turn) {};
 
     /*------------------------------------------------------------------
     // name:		addScore
@@ -107,11 +108,14 @@ public:
     //----------------------------------------------------------------*/
     virtual void resetHand(vector<Card> *newHand);
 
+    void reset();
+
 protected:
     vector<Card> holdingHand;
     vector<Card> playingHand;
     int score;
     string name;
+    bool turn;
 };
 
 /*------------------------------------------------------------------

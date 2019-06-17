@@ -112,13 +112,13 @@ void Board::pegging(Score &p1, Score &p2) {
                 if (!turn) {
                     p2.pegging += 1;
                     player2->addScore(1);
-                    cout << player2->getName();
+                    //cout << player2->getName();
                 } else {
                     p1.pegging += 1;
                     player1->addScore(1);
-                    cout << player2->getName();;
+                    //cout << player2->getName();;
                 }
-                cout << " pegged 1 points" << endl;
+                //cout << " pegged 1 points" << endl;
                 if (hasWon()) break;
             }
             sum = 0;
@@ -141,13 +141,13 @@ void Board::pegging(Score &p1, Score &p2) {
                 if (turn) {
                     p2.pegging += score;
                     player2->addScore(score);
-                    cout << player2->getName();
+                    //cout << player2->getName();
                 } else {
                     p1.pegging += score;
                     player1->addScore(score);
-                    cout << player2->getName();;
+                    //cout << player2->getName();;
                 }
-                cout <<" pegged " << score << " points" << endl;
+                //cout <<" pegged " << score << " points" << endl;
                 if(hasWon()) break;
             }
         }
@@ -190,8 +190,7 @@ void Board::calculateScores(Score & p1Score, Score & p2Score, Score & cribScore)
 // returns:		none
 // called by:	main
 //----------------------------------------------------------------*/
-void Board::play() {
-    turn = true;
+GameStats Board::play() {
     Score p1Score;
     Score p2Score;
     Score cribScore;
@@ -210,7 +209,7 @@ void Board::play() {
         calculateScores(p1Score, p2Score, cribScore);
         if (hasWon()) break;
         
-        printTable(p1Score, p2Score, cribScore);
+        //printTable(p1Score, p2Score, cribScore);
         
         stats.addScores(p1Score, p2Score, cribScore, turn);
         turn = !turn;
@@ -219,9 +218,25 @@ void Board::play() {
         p2Score = Score();
         cribScore = Score();
     }
-    printTable(p1Score, p2Score, cribScore);
-    printWinner();   
-    stats.calculateEndGameStats(player1->getName(), player2->getName());
+    if (player1->getScore() > 120 && player2->getScore() > 120)
+        if (turn) stats.winner = true;
+        else stats.winner = false;
+    else if (player1->getScore() > player2->getScore())
+        stats.winner = true;
+    else stats.winner = false;
+
+    //printTable(p1Score, p2Score, cribScore);
+    //printWinner();   
+
+    return stats;
+}
+
+void Board::resetGame(bool turn) {
+    deck->resetDeck();
+    player1->reset();
+    player2->reset();
+    stats.reset();
+    this->turn = turn;
 }
 
 /*------------------------------------------------------------------
@@ -319,11 +334,11 @@ void Board::cut() {
     if (cutCard.id == 11) {
         if (turn) {
             player1->addScore(2);
-            cout << "You gained 2 points from the Jack cut" << endl;
+            //cout << "You gained 2 points from the Jack cut" << endl;
         }
         else {
             player2->addScore(2);
-            cout << "Computer gained 2 points from the Jack cut" << endl;
+            //cout << "Computer gained 2 points from the Jack cut" << endl;
         }
     }
 }

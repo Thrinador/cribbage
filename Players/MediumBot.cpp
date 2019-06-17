@@ -10,7 +10,7 @@ vector<Card> MediumBot::getCribCards(bool turn) {
         for (unsigned int j = i + 1; j < holdingHand.size(); j++) {
             vector<Card> partialHand = getPartialHand(i, j);
 
-            int score = calculatePartialHandScore(partialHand).getTotalNoPegging();
+            int score = calculatePartialHandScore(partialHand);
             if (score > bestScore) {
                 bestScore = score;
                 bestI = i;
@@ -31,6 +31,10 @@ vector<Card> MediumBot::getCribCards(bool turn) {
 }
 
 Card MediumBot::playCard(vector<Card> pastCards, int sum) {
+    if (playingHand.size() == 0) {
+        return Card();
+    }
+
     //If it needs to start, then always plays first card.
     if (sum == 0) {
         Card choice = playingHand[0];

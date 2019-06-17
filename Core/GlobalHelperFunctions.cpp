@@ -9,10 +9,10 @@
 // called by:	Human::printPegging, intro, printTable, printRoundStart
 //----------------------------------------------------------------*/
 void ClearScreen() {
-    std::cout << std::endl;
+    /*std::cout << std::endl;
     for (int i = 0; i < 80; i++)
         std::cout << "#";
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 }
 
 /*------------------------------------------------------------------

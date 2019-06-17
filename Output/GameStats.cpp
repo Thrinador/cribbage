@@ -8,6 +8,7 @@ void GameStats::addScores(Score p1Score, Score p2Score, Score cribScore, bool pl
 }
 
 void GameStats::calculateEndGameStats(string p1Name, string p2Name) {
+    /*
     cout << "---------------------------------------------------------------------------" << endl;
     cout << "| Criteria                    |";
     printName(p1Name);
@@ -30,10 +31,10 @@ void GameStats::calculateEndGameStats(string p1Name, string p2Name) {
     cout << "---------------------------------------------------------------------------" << endl;
 
     cout << "Press enter to continue.";
-    cin.get();
+    cin.get(); */
 }
 
-string GameStats::totalFifteens(vector<Score> handScores, vector<Score> CribScores) {
+int GameStats::totalFifteens(vector<Score> handScores, vector<Score> CribScores) {
     int total = 0;
     for (Score s : handScores) {
         total += s.fifteens;
@@ -43,10 +44,10 @@ string GameStats::totalFifteens(vector<Score> handScores, vector<Score> CribScor
         total += s.fifteens;
     }
 
-    return format(total);
+    return total;
 }
 
-string GameStats::totalRuns(vector<Score> handScores, vector<Score> CribScores)
+int GameStats::totalRuns(vector<Score> handScores, vector<Score> CribScores)
 {
     int total = 0;
     for (Score s : handScores) {
@@ -57,10 +58,10 @@ string GameStats::totalRuns(vector<Score> handScores, vector<Score> CribScores)
         total += s.runs;
     }
 
-    return format(total);
+    return total;
 }
 
-string GameStats::totalFlushes(vector<Score> handScores, vector<Score> CribScores)
+int GameStats::totalFlushes(vector<Score> handScores, vector<Score> CribScores)
 {
     int total = 0;
     for (Score s : handScores) {
@@ -71,10 +72,10 @@ string GameStats::totalFlushes(vector<Score> handScores, vector<Score> CribScore
         total += s.flush;
     }
 
-    return format(total);
+    return total;
 }
 
-string GameStats::totalOfAKind(vector<Score> handScores, vector<Score> CribScores)
+int GameStats::totalOfAKind(vector<Score> handScores, vector<Score> CribScores)
 {
     int total = 0;
     for (Score s : handScores) {
@@ -85,10 +86,10 @@ string GameStats::totalOfAKind(vector<Score> handScores, vector<Score> CribScore
         total += s.ofAKind;
     }
 
-    return format(total);
+    return total;
 }
 
-string GameStats::totalNubs(vector<Score> handScores, vector<Score> CribScores)
+int GameStats::totalNubs(vector<Score> handScores, vector<Score> CribScores)
 {
     int total = 0;
     for (Score s : handScores) {
@@ -99,52 +100,52 @@ string GameStats::totalNubs(vector<Score> handScores, vector<Score> CribScores)
         total += s.nubs;
     }
 
-    return format(total);
+    return total;
 }
 
-string GameStats::totalPegs(vector<Score> handScores)
+int GameStats::totalPegs(vector<Score> handScores)
 {
     int total = 0;
     for (Score s : handScores) {
         total += s.pegging;
     }
 
-    return format(total);
+    return total;
 }
 
-string GameStats::averageHand(vector<Score> handScores)
+int GameStats::averageHand(vector<Score> handScores)
 {
     double total = 0;
     for (Score s : handScores) {
         total += s.getTotal();
     }
     total /= handScores.size();
-    return format(total);
+    return total;
 }
 
-string GameStats::bestHand(vector<Score> handScores)
+int GameStats::bestHand(vector<Score> handScores)
 {
     int max = 0;
     for (Score s : handScores) {
-        if (s.getTotal() > max) {
-            max = s.getTotal();
+        if (s.getTotalNoPegging() > max) {
+            max = s.getTotalNoPegging();
         }
     }
 
-    return format(max);
+    return max;
 }
 
-string GameStats::averageCrib(vector<Score> cribScores)
+int GameStats::averageCrib(vector<Score> cribScores)
 {
     double total = 0;
     for (Score s : cribScores) {
         total += s.getTotal();
     }
     total /= cribScores.size();
-    return format(total);
+    return total;
 }
 
-string GameStats::bestCrib(vector<Score> cribScores)
+int GameStats::bestCrib(vector<Score> cribScores)
 {
     int max = 0;
     for (Score s : cribScores) {
@@ -153,10 +154,10 @@ string GameStats::bestCrib(vector<Score> cribScores)
         }
     }
 
-    return format(max);
+    return max;
 }
 
-string GameStats::bestPeg(vector<Score> handScores)
+int GameStats::bestPeg(vector<Score> handScores)
 {
     int max = 0;
     for (Score s : handScores) {
@@ -165,15 +166,22 @@ string GameStats::bestPeg(vector<Score> handScores)
         }
     }
 
-    return format(max);
+    return max;
 }
 
-string GameStats::averagePeg(vector<Score> handScores)
+int GameStats::averagePeg(vector<Score> handScores)
 {
     double total = 0;
     for (Score s : handScores) {
         total += s.pegging;
     }
     total /= handScores.size();
-    return format(total);
+    return total;
+}
+
+void GameStats::reset() {
+    p1HandScores.clear();
+    p2HandScores.clear();
+    p1CribHandScores.clear();
+    p2CribHandScores.clear();
 }

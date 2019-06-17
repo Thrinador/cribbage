@@ -11,6 +11,7 @@
 
 #pragma once
 #include "Player.h"
+#include "../Core/Deck.h"
 
 class Computer : public Player {
 
@@ -38,8 +39,16 @@ public:
 
 protected:
     vector<Card> getPartialHand(int i, int j);
+
+    int calculatePartialHandScore(vector<Card> partialHand);
+
+    double calculateCutValue(vector<Card> partialHand);
+
+    double calculateCribCardValue(int i, int j);
+
+    bool cardInHand(Card c, vector<Card> hand);
 };
 
-Score calculatePartialHandScore(vector<Card> hand);
+
 
 int scoreFlush(const vector<Card> hand);

@@ -51,8 +51,7 @@ Card Computer::playCard(vector<Card> pastCards, int sum) {
     return Card();
 }
 
-vector<Card> Computer::getPartialHand(int i, int j)
-{
+vector<Card> Computer::getPartialHand(int i, int j) {
     vector<Card> partialHand;
 
     for (int k = 0; k < holdingHand.size(); k++) {
@@ -63,18 +62,37 @@ vector<Card> Computer::getPartialHand(int i, int j)
     return partialHand;
 }
 
-Score calculatePartialHandScore(vector<Card> hand)
+int Computer::calculatePartialHandScore(vector<Card> hand) {
+    return score15(hand) + scoreFlush(hand) + scoreRuns(hand) + scoreOfAKind(hand);
+}
+
+double Computer::calculateCutValue(vector<Card> partialHand) {
+    Deck d;
+    double expectedValue = 0;
+    for (int i = 0; i < 52; i++) {
+        Card c = d.draw();
+        if (cardInHand(c, partialHand)) {
+            Score s = calculateHandScore(partialHand, c, 0);
+            expectedValue += s.getTotalNoPegging();
+        }
+    }
+
+    return expectedValue / 46;
+}
+
+double Computer::calculateCribCardValue(int i, int j) {
+    return 0;
+}
+
+bool Computer::cardInHand(Card c, vector<Card> hand)
 {
-    Score score;
+    for (Card handCard : hand) {
+        if (c.id == handCard.id) {
+            return true;
+        }
+    }
 
-    score.fifteens = score15(hand);
-    score.flush = scoreFlush(hand);
-    score.runs = scoreRuns(hand);
-    score.ofAKind = scoreOfAKind(hand);
-
-    score.nubs = 0;
-    score.pegging = 0;
-    return score;
+    return false;
 }
 
 int scoreFlush(const vector<Card> hand)

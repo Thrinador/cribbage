@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Player.h"
+#include "Computer.h"
 
-class HardBot : public Player {
+class HardBot : public Computer {
 
 public:
-    HardBot() { this->name = "Medium Bot"; }
+    HardBot() { this->name = "Hard Bot"; }
 
     vector<Card> getCribCards(bool turn);
 
