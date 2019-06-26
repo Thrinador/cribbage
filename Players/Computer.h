@@ -44,9 +44,19 @@ protected:
 
     double calculateCutValue(vector<Card> partialHand);
 
-    double calculateCribCardValue(int i, int j);
+    double calculateCribCardValue(Card c1, Card c2);
 
     bool cardInHand(Card c, vector<Card> hand);
+
+    Card pegRun(vector<Card> pastCards, int sum);
+
+    Card pegPair(vector<Card> pastCards, int sum);
+
+    Card peg15Or31(vector<Card> pastCards, int sum);
+
+    Card pegAnyCard(vector<Card> pastCards, int sum);
+
+    int checkCardsType(vector<Card> &partPastCards);
 };
 
 

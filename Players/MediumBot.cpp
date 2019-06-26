@@ -31,9 +31,7 @@ vector<Card> MediumBot::getCribCards(bool turn) {
 }
 
 Card MediumBot::playCard(vector<Card> pastCards, int sum) {
-    if (playingHand.size() == 0) {
-        return Card();
-    }
+    if (playingHand.size() == 0) return Card();
 
     //If it needs to start, then always plays first card.
     if (sum == 0) {
@@ -43,36 +41,16 @@ Card MediumBot::playCard(vector<Card> pastCards, int sum) {
     }
 
     //Try to get pair
-    for (unsigned int i = 0; i < playingHand.size(); i++) {
-        Card c = playingHand[i];
-        if (c.id == pastCards.back().id) {
-            if (c.value + sum < 31) {
-                playingHand.erase(playingHand.begin() + i);
-                return c;
-            }
-            else {
-                break;
-            }
-        }
-    }
+    Card c = pegPair(pastCards, sum);
+    if (c.id != 0) return c;
 
     //Try to get either 15 or 31
-    for (unsigned int i = 0; i < playingHand.size(); i++) {
-        Card c = playingHand[i];
-        if (c.value + sum == 15 || c.value + sum == 31) {
-            playingHand.erase(playingHand.begin() + i);
-            return c;
-        }
-    }
+    c = peg15Or31(pastCards, sum);
+    if (c.id != 0) return c;
 
     //Play any card
-    for (unsigned int i = 0; i < playingHand.size(); i++) {
-        Card choice = playingHand[i];
-        if (choice.value + sum <= 31) {
-            playingHand.erase(playingHand.begin() + i);
-            return choice;
-        }
-    }
+    c = pegAnyCard(pastCards, sum);
+    if (c.id != 0) return c;
 
     //Can't play
     return Card();

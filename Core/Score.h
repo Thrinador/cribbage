@@ -2,6 +2,8 @@
 
 class Score {
 public:
+    constexpr Score() {}
+
     int getTotal() {
         return fifteens + runs + ofAKind + flush + nubs + pegging;
     }

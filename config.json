@@ -1,0 +1,12 @@
+{
+"simulating": "yes",
+"numOfGames": 10000,
+"numOfThreads" : 16,
+"fileOutput" : "yes",
+"fileOutName" : "out.txt",
+"consoleOutput" : "yes",
+"player1AlwaysStart" : "no",
+
+"player1" : "EasyBot",
+"player2" : "EasyBot"
+}

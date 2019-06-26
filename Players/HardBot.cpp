@@ -14,7 +14,7 @@ vector<Card> HardBot::getCribCards(bool turn) {
             //the cut is added to the hand. Finally, the value of the cards given to the crib are either added or 
             //subtracted depending on whether it is your crib.
             double score = calculatePartialHandScore(partialHand) + calculateCutValue(partialHand);
-            if(turn == this->turn) score += calculateCribCardValue(i, j);
+            if(turn == this->turn) score += calculateCribCardValue(holdingHand[i], holdingHand[j]);
             else score -= calculateCribCardValue(i, j);
 
             if (score > bestScore) {
@@ -37,8 +37,19 @@ vector<Card> HardBot::getCribCards(bool turn) {
 }
 
 Card HardBot::playCard(vector<Card> pastCards, int sum) {
-    if (playingHand.size() == 0) {
-        return Card();
+    //If your hand is empty you can't play
+    if (playingHand.size() == 0) return Card();
+
+    //If you only have one card to play then attempt to play it.
+    if (playingHand.size() == 1) {
+        Card choice = playingHand[0];
+        if (choice.value + sum <= 31) {
+            playingHand.erase(playingHand.begin());
+            return choice;
+        }
+        else {
+            return Card();
+        }
     }
 
     //If it needs to start, then always plays first card.
@@ -50,39 +61,20 @@ Card HardBot::playCard(vector<Card> pastCards, int sum) {
     }
 
     //Try and get a run
-    //TODO
-
+    Card c = pegRun(pastCards, sum);
+    if (c.id != 0) return c;
+    
     //Try to get pair
-    for (unsigned int i = 0; i < playingHand.size(); i++) {
-        Card c = playingHand[i];
-        if (c.id == pastCards.back().id) {
-            if (c.value + sum < 31) {
-                playingHand.erase(playingHand.begin() + i);
-                return c;
-            }
-            else {
-                break;
-            }
-        }
-    }
-
+    c = pegPair(pastCards, sum);
+    if (c.id != 0) return c;
+    
     //Try to get either 15 or 31
-    for (unsigned int i = 0; i < playingHand.size(); i++) {
-        Card c = playingHand[i];
-        if (c.value + sum == 15 || c.value + sum == 31) {
-            playingHand.erase(playingHand.begin() + i);
-            return c;
-        }
-    }
+    c = peg15Or31(pastCards, sum);
+    if (c.id != 0) return c;
 
     //Play any card
-    for (unsigned int i = 0; i < playingHand.size(); i++) {
-        Card choice = playingHand[i];
-        if (choice.value + sum <= 31) {
-            playingHand.erase(playingHand.begin() + i);
-            return choice;
-        }
-    }
+    c = pegAnyCard(pastCards, sum);
+    if (c.id != 0) return c;
 
     //Can't play
     return Card();

@@ -122,6 +122,7 @@
     <ClInclude Include="Core\ctpl_stl.h" />
     <ClInclude Include="core\Deck.h" />
     <ClInclude Include="core\GlobalHelperFunctions.h" />
+    <ClInclude Include="Core\json.hpp" />
     <ClInclude Include="core\Score.h" />
     <ClInclude Include="output\GameStats.h" />
     <ClInclude Include="output\SimulationStats.h" />

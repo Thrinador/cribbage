@@ -1,15 +1,26 @@
+/*--------------------------------------------------------------------
+// file name:	Board.h
+// authors:     Ben Clark, Polina Eremenko
+// date:		07/02/2017
+// description: A representation of a Cribbage board. Controls the deck
+//              and Player classes. The play method acts as the driver for
+//              the program.
+// variables:	a bool representing if it is player1's turn or player2's
+//              turn. Deck that is in charge of dealing the cards and
+//              getting the cut for the board. Players 1 and 2 that
+//              are the players in the game. A vector that is the crib cards
+//--------------------------------------------------------------------*/
+
 #pragma once
-#include <iostream>
 #include <vector>
 
 #include "../Core/Score.h"
-#include "../Core/GlobalHelperFunctions.h"
 
 using namespace std;
 
 class GameStats {
 public:
-    GameStats() {};
+    GameStats() {}
 
     void addScores(Score p1Score, Score p2Score, Score cribScore, bool playersCrib);
     void calculateEndGameStats(string p1Name, string p2Name);

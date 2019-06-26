@@ -23,7 +23,8 @@ struct Card {
     // returns:		none
     // called by:	Deck::Deck, Deck::resetHand,Human::playCard, Computer::playCard
     //----------------------------------------------------------------*/
-    Card(int id = 0, int s = 0) : id(id), suit(s), value((id < 10) ? id : 10) {};
+    Card(int id = 0, int s = 0) : id(id), suit(s), value((id < 10) ? id : 10) {}
+    Card(const Card& other) : id(other.id), suit(other.suit), value(other.value) {}
 
     /*------------------------------------------------------------------
     // name:		operator>
@@ -36,6 +37,10 @@ struct Card {
     //----------------------------------------------------------------*/
     bool operator>(const Card & other) const {
         return (this->id > other.id) || (this->id == other.id && this->suit > other.suit);
+    }
+
+    bool operator==(const Card& other) const {
+        return (this->id == other.id) && (this->suit == other.suit);
     }
 
     /*------------------------------------------------------------------
